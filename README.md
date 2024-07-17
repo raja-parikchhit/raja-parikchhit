@@ -18,6 +18,7 @@ Here are some ideas to get you started:
 Testing mermaid pie chart
 
 ```mermaid
+%%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}}}%%
 pie showData
 title backend test coverage
 "passed cases": 10
