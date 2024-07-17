@@ -16,9 +16,9 @@ Here are some ideas to get you started:
 -->
 
 Testing mermaid pie chart
-<table>
-    <tr>
-    <td>
+<div style="display: flex; justify-content: space-around;">
+
+<div style="width: 45%;">
               
 ```mermaid
       %%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}}}%%
@@ -27,8 +27,8 @@ Testing mermaid pie chart
       "passed cases": 10
       "failed cases": 2
 ```            
-</td>
-<td>
+</div>
+<div style="width: 45%;">
 
 ```mermaid
       pie showData
@@ -36,7 +36,6 @@ Testing mermaid pie chart
       "passed cases": 15
       "failed cases" : 5
 ````       
-          </td>
-    </tr>  
-</table>
+</div>
+</div>
 
