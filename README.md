@@ -15,12 +15,8 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 <details>
-Testing mermaid pie chart
-<div style="display: inline-block; justify-content: space-around;">
-
-<span style="width: 45%; display:inline">
+<summary>Backend test report</summary>
 <details>
-  Backend test report
 ```mermaid
       %%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}}}%%
       pie showData
@@ -29,11 +25,8 @@ Testing mermaid pie chart
       "failed cases": 2
 ```   
 </details>                  
-</span>
 <details>
-  front end test report
-  <span style="width: 45%; display:inline">
-
+<summary>front end test report</summary>
 ```mermaid
 %%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}}}%%
       pie showData
@@ -41,7 +34,5 @@ Testing mermaid pie chart
       "passed cases": 15
       "failed cases" : 5
 ````       
-</span>
 </details>
-</div>
 </details>
