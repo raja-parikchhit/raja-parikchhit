@@ -28,17 +28,7 @@ Here are some ideas to get you started:
       "failed cases": 2
 ```
     </td>
-    <td>
-
-```mermaid
-%%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}}}%%
-      pie showData
-      title front end test coverage
-      "passed cases": 15
-      "failed cases" : 5
-````
-
-    </td>
+    
   </tr> 
 </table>
                 
