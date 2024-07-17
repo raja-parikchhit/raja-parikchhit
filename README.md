@@ -21,7 +21,7 @@ Testing mermaid pie chart
 <span style="width: 45%; display:inline">
 <details>
   Backend test report
-  ```mermaid
+```mermaid
       %%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}}}%%
       pie showData
       title backend test coverage
