@@ -16,8 +16,8 @@ Here are some ideas to get you started:
 -->
 <details>
 <summary>test report</summary>
-<div style="display: flex, width: 100%, height: 100%">
-  <div style="display: flex, width: 45%, float: left">
+<div style="display: flex, width: 800px, height: 800px">
+  <div style="display: flex, width: 375px, float: left">
         
 ```mermaid
       %%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}}}%%
@@ -28,7 +28,7 @@ Here are some ideas to get you started:
 ```
         
   </div>
-   <div style="display: flex, width: 45%">
+   <div style="display: flex, width: 375px">
          
 ```mermaid
 %%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}}}%%
