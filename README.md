@@ -23,6 +23,7 @@ title backend test coverage
 "passed cases": 10
 "failed cases": 2
 ```
+```mermaid
 pie showData
 title front end test coverage
 "passed cases": 15
