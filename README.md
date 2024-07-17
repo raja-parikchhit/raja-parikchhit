@@ -17,6 +17,7 @@ Here are some ideas to get you started:
 <details>
 <summary>test report</summary>
 <details open>
+      
 ```mermaid
       %%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}}}%%
       pie showData
