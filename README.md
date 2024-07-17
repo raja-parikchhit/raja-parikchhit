@@ -31,6 +31,7 @@ Testing mermaid pie chart
 <span style="width: 45%; display:inline">
 
 ```mermaid
+%%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}}}%%
       pie showData
       title front end test coverage
       "passed cases": 15
