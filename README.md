@@ -15,8 +15,6 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 <details>
-
-<details>
 <summary>Backend test report</summary>
       
 ```mermaid
@@ -27,16 +25,12 @@ Here are some ideas to get you started:
       "failed cases": 2
 ```
 
-</details>                  
-<details>
-<summary>front end test report</summary>
-
 ```mermaid
 %%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}}}%%
       pie showData
       title front end test coverage
       "passed cases": 15
       "failed cases" : 5
-````       
-</details>
+````
+
 </details>
