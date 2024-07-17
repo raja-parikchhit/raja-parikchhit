@@ -16,9 +16,11 @@ Here are some ideas to get you started:
 -->
 <details>
 <summary>test report</summary>
-<div style="display: flex, width: 800px, height: 800px">
-  <div style="display: flex, width: 375px, float: left">
-        
+<table>
+  <tr>
+
+    <td>
+
 ```mermaid
       %%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}}}%%
       pie showData
@@ -26,10 +28,9 @@ Here are some ideas to get you started:
       "passed cases": 10
       "failed cases": 2
 ```
-        
-  </div>
-   <div style="display: flex, width: 375px">
-         
+    </td>
+    <td>
+
 ```mermaid
 %%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}}}%%
       pie showData
@@ -37,8 +38,10 @@ Here are some ideas to get you started:
       "passed cases": 15
       "failed cases" : 5
 ````
-         
-  </div>   
-</div>
 
+    </td>
+  </tr>
+  
+</table>
+                
 </details>
