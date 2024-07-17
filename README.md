@@ -16,10 +16,7 @@ Here are some ideas to get you started:
 -->
 <details>
 <summary>test report</summary>
-<table>
-  <tr>
-    <td>
-
+<details open>
 ```mermaid
       %%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}}}%%
       pie showData
@@ -27,9 +24,16 @@ Here are some ideas to get you started:
       "passed cases": 10
       "failed cases": 2
 ```
-    </td>
-    
-  </tr> 
-</table>
+</details>
+<details>
+
+```mermaid
+%%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}}}%%
+      pie showData
+      title front end test coverage
+      "passed cases": 15
+      "failed cases" : 5
+````
+</details>
                 
 </details>
