@@ -18,7 +18,6 @@ Here are some ideas to get you started:
 <summary>test report</summary>
 <table>
   <tr>
-
     <td>
 
 ```mermaid
@@ -40,8 +39,7 @@ Here are some ideas to get you started:
 ````
 
     </td>
-  </tr>
-  
+  </tr> 
 </table>
                 
 </details>
