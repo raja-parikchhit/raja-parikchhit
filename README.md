@@ -19,16 +19,20 @@ Testing mermaid pie chart
 <div style="display: inline-block; justify-content: space-around;">
 
 <span style="width: 45%; display:inline">
-              
-```mermaid
+<details>
+  Backend test report
+  ```mermaid
       %%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}}}%%
       pie showData
       title backend test coverage
       "passed cases": 10
       "failed cases": 2
-```            
+```   
+</details>                  
 </span>
-<span style="width: 45%; display:inline">
+<details>
+  front end test report
+  <span style="width: 45%; display:inline">
 
 ```mermaid
 %%{init: {"pie": {"textPosition": 0.5}, "themeVariables": {"pieOuterStrokeWidth": "5px"}}}%%
@@ -38,5 +42,6 @@ Testing mermaid pie chart
       "failed cases" : 5
 ````       
 </span>
+</details>
 </div>
 </details>
