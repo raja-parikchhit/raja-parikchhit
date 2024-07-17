@@ -14,7 +14,7 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
-
+<details>
 Testing mermaid pie chart
 <div style="display: inline-block; justify-content: space-around;">
 
@@ -39,4 +39,4 @@ Testing mermaid pie chart
 ````       
 </span>
 </div>
-
+</details>
