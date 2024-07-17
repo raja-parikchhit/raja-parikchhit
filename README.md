@@ -16,7 +16,7 @@ Here are some ideas to get you started:
 -->
 
 Testing mermaid pie chart
-<div style="display: flex; justify-content: space-around;">
+<div style="display: block; justify-content: space-around;">
 
 <div style="width: 45%;">
               
