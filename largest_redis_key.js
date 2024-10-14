@@ -1,7 +1,15 @@
 const { createClient } = require('redis');
 
 async function findTopLargestKeys(limit = 10) {
-  const redis = createClient();
+  const redis = createClient({url: "",
+                             database: 0,
+                             password: "",
+                             socket: {
+                               tls: true,
+                               rejectUnauthorized: false,
+                               connectTimeout: 2000
+                             }
+                             });
 
   redis.on('error', (err) => console.error('Redis Client Error:', err));
 
