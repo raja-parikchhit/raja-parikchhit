@@ -1,0 +1,60 @@
+{
+  "query": {
+    "bool": {
+      "filter": [
+        { "exists": { "field": "githubRunId" } },
+        { "exists": { "field": "runAttempt" } }
+      ]
+    }
+  },
+  "aggs": {
+    "by_githubRunId": {
+      "terms": {
+        "field": "githubRunId.keyword",
+        "size": 10000
+      },
+      "aggs": {
+        "by_attempt": {
+          "terms": {
+            "field": "runAttempt",
+            "size": 100
+          },
+          "aggs": {
+            "min_time": {
+              "min": {
+                "field": "@timestamp"
+              }
+            },
+            "max_time": {
+              "max": {
+                "field": "@timestamp"
+              }
+            }
+          }
+        },
+        "time_diff": {
+          "bucket_script": {
+            "buckets_path": {
+              "first_attempt": "by_attempt['1']>min_time",
+              "last_attempt": "by_attempt.max_time"
+            },
+            "script": "params.last_attempt - params.first_attempt"
+          }
+        },
+        "filter_long_diff": {
+          "bucket_selector": {
+            "buckets_path": {
+              "diff": "time_diff"
+            },
+            "script": "params.diff > 604800000" // 7 days in milliseconds
+          }
+        }
+      }
+    },
+    "unique_count": {
+      "cardinality": {
+        "field": "githubRunId.keyword"
+      }
+    }
+  }
+}
