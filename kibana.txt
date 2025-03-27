@@ -14,39 +14,46 @@
         "size": 10000
       },
       "aggs": {
-        "by_attempt": {
-          "terms": {
-            "field": "runAttempt",
-            "size": 100
+        "first_attempt": {
+          "filter": {
+            "term": { "runAttempt": 1 }
           },
           "aggs": {
             "min_time": {
               "min": {
                 "field": "@timestamp"
               }
-            },
-            "max_time": {
-              "max": {
-                "field": "@timestamp"
-              }
             }
+          }
+        },
+        "latest_attempt": {
+          "max": {
+            "field": "@timestamp"
+          }
+        },
+        "max_attempt": {
+          "max": {
+            "field": "runAttempt"
           }
         },
         "time_diff": {
           "bucket_script": {
             "buckets_path": {
-              "first_attempt": "by_attempt['1']>min_time",
-              "last_attempt": "by_attempt.max_time"
+              "first": "first_attempt>min_time",
+              "last": "latest_attempt"
             },
-            "script": "params.last_attempt - params.first_attempt"
+            "script": {
+              "source": "if (params.first != null && params.last != null) { return params.last - params.first } else { return -1 }"
+            }
           }
         },
-        "filter_long_diff": {
+        "filter_conditions": {
           "bucket_selector": {
             "buckets_path": {
-              "diff": "time_diff"
+              "diff": "time_diff",
+              "maxAttempt": "max_attempt"
             },
-            "script": "params.diff > 604800000" // 7 days in milliseconds
+            "script": "params.diff > 604800000 && params.maxAttempt > 1" // 7 days and max_attempt > 1
           }
         }
       }
