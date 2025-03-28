@@ -14,14 +14,15 @@
         "size": 10000  // Adjust based on expected unique run IDs
       },
       "aggs": {
-        "max_attempt": {
-          "max": {
-            "field": "githubRunAttempt"
+        "attempts": {
+          "terms": {
+            "field": "githubRunAttempt",
+            "size": 10  // Should be enough to capture all attempts
           }
         },
         "first_attempt": {
           "filter": {
-            "term": { "githubRunAttempt": 1 }
+            "term": { "githubRunAttempt": "1" }  // String if not numeric
           },
           "aggs": {
             "earliest_time": {
@@ -49,16 +50,11 @@
           "bucket_selector": {
             "buckets_path": {
               "diff": "time_diff",
-              "maxAttempt": "max_attempt"
+              "attemptCount": "attempts._bucket_count"
             },
-            "script": "params.diff != null && params.diff > 604800000 && params.maxAttempt > 1"
+            "script": "params.diff != null && params.diff > 604800000 && params.attemptCount > 1"
           }
         }
-      }
-    },
-    "unique_run_ids": {
-      "cardinality": {
-        "field": "githubRunId.keyword"
       }
     }
   }
