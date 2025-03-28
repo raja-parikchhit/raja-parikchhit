@@ -3,48 +3,46 @@
     "bool": {
       "filter": [
         { "exists": { "field": "githubRunId" } },
-        { "exists": { "field": "runAttempt" } }
+        { "exists": { "field": "githubRunAttempt" } }
       ]
     }
   },
   "aggs": {
-    "by_githubRunId": {
+    "by_run_id": {
       "terms": {
         "field": "githubRunId.keyword",
-        "size": 10000
+        "size": 10000  // Adjust based on expected unique run IDs
       },
       "aggs": {
+        "max_attempt": {
+          "max": {
+            "field": "githubRunAttempt"
+          }
+        },
         "first_attempt": {
           "filter": {
-            "term": { "runAttempt": 1 }
+            "term": { "githubRunAttempt": 1 }
           },
           "aggs": {
-            "min_time": {
+            "earliest_time": {
               "min": {
                 "field": "@timestamp"
               }
             }
           }
         },
-        "latest_attempt": {
+        "latest_time": {
           "max": {
             "field": "@timestamp"
-          }
-        },
-        "max_attempt": {
-          "max": {
-            "field": "runAttempt"
           }
         },
         "time_diff": {
           "bucket_script": {
             "buckets_path": {
-              "first": "first_attempt>min_time",
-              "last": "latest_attempt"
+              "first": "first_attempt>earliest_time",
+              "last": "latest_time"
             },
-            "script": {
-              "source": "if (params.first != null && params.last != null) { return params.last - params.first } else { return -1 }"
-            }
+            "script": "if (params.first != null && params.last != null) { return params.last - params.first } else { return -1 }"
           }
         },
         "filter_conditions": {
@@ -53,12 +51,12 @@
               "diff": "time_diff",
               "maxAttempt": "max_attempt"
             },
-            "script": "params.diff > 604800000 && params.maxAttempt > 1" // 7 days and max_attempt > 1
+            "script": "params.diff != null && params.diff > 604800000 && params.maxAttempt > 1"
           }
         }
       }
     },
-    "unique_count": {
+    "unique_run_ids": {
       "cardinality": {
         "field": "githubRunId.keyword"
       }
